@@ -1,13 +1,18 @@
-// const bubbleSort = require('./bubblesort');describe('Bubble Sort', function() {
-	beforeAll(function() {
-		spyOn(swap, 'swap').and.callThrough(); //
+describe('Bubble Sort', function() {
+	beforeAll(() => {
+		spyOn(window, 'swap').and.callThrough();
 	});
 
-	it('handles an empty array', function() {
+	it('handles an empty array', () => {
+		expect(bubbleSort([])).toEqual([]);
+	});
+
+	it('calls the swap function', () => {
 		bubbleSort([]);
-		bubbleSort([]);
-		bubbleSort([]);
-		expect(swap.calls.count()).toEqual(3);
-		// expect(bubbleSort([])).toEqual([]);
+		expect(swap).toHaveBeenCalled();
+	});
+
+	it('calls the swap function on each call', () => {
+		expect(swap.calls.count()).toEqual(2);
 	});
 });

@@ -3,19 +3,12 @@ function bubbleSort(arr) {
 }
 
 function swap(arr) {
-	return arr.reduce(
-		(newArr, el, idx) => {
-			if (newArr[newArr.length - 1]) {
-				if (el < newArr[newArr.length - 1]) {
-					let temp = newArr[newArr.length - 1];
-					newArr[newArr.length - 1] = el;
-					newArr.push(temp);
-				}
-			} else newArr.push(el);
-			return newArr;
-		},
-		[ 4 ]
-	);
+	return arr.reduce((sorted, el) => {
+		let idx = 0;
+		while (idx < sorted.length && el > sorted[idx]) i++;
+		sorted.splice(idx, 0, el);
+		return sorted;
+	}, []);
 }
 
 console.log(bubbleSort([ 4, 2, 3, 1 ]));
